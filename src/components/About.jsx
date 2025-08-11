@@ -46,7 +46,7 @@ const About = () => {
           duration: 1,
           ease: "power1.inOut",
         },
-        "-=0.6"
+        "-=1"
       );
   }, []);
 
