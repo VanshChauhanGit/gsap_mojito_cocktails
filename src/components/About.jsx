@@ -8,6 +8,10 @@ const About = () => {
       type: "words",
     });
 
+    const subcontentSplit = SplitText.create(".sub-content p", {
+      type: "lines",
+    });
+
     const scrollTimeline = gsap.timeline({
       scrollTrigger: {
         trigger: "#about",
@@ -24,6 +28,17 @@ const About = () => {
         stagger: 0.02,
       })
       .from(
+        subcontentSplit.lines,
+        {
+          xPercent: 100,
+          opacity: 0,
+          duration: 1,
+          ease: "expo.out",
+          stagger: 0.03,
+        },
+        "-=0.8"
+      )
+      .from(
         ".top-grid div, .bottom-grid div",
         {
           opacity: 0,
@@ -31,7 +46,7 @@ const About = () => {
           duration: 1,
           ease: "power1.inOut",
         },
-        "-=0.5"
+        "-=0.6"
       );
   }, []);
 
